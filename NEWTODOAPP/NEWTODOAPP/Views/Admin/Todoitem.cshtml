@@ -1,0 +1,66 @@
+﻿@*@model NEWTODOAPP.Models.Todo*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/CSS/Todo.css" rel="stylesheet" type="text/css" />
+    <title>Kanban Board</title>
+</head>
+<body>
+    <h2>Todo Application</h2>
+    <div class="ticket">
+        <input type="text" id="textinput" class="textinput" placeholder="Enter BoardName here....">
+        <button id="button1" onclick="postBoardInformation();BoardCreation();">Add new board</button>
+        <br />
+        <br />
+
+        <strong>Select the board board</strong>
+        <select name="Boards" id="ddl" onmousedown="this.value='';" onchange=" GetBoard()">
+            <option selected="selected">Boards</option>
+            <option value="Board1">Board1</option>
+            <option value="Board2">Board2</option>
+            <option value="Board3">Board3</option>
+        </select>
+    </div>
+    <div id="boards" >
+        <div class="container" >
+           <div class="todo_heading_text">
+              <strong>Board</strong>
+           </div>
+
+            <div class="Todo_board">
+                <div class="todo_block" id="Todo">
+                    <strong>ToDo</strong><br />
+                    <input type="text" id="inputtext" class="inputtext" placeholder="Enter Todo here....">
+                    <button id="btn" class="btnn" onclick="saveTask()">Add To Do</button>
+                    <div id="tasks">
+                        <div class="ToDoList" draggable="true">
+                        </div>
+                    </div>
+               
+                 </div>
+                <div class="todo_block" id="Doing">
+                    <strong>Doing</strong>
+                    <div id="Inprogress" ></div>
+                </div>
+                <div class="todo_block" id="Done">
+                    <strong>Done</strong>
+                    <div id="Completed"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/Admin.js/Todoitem.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿
+.form-center {
+    display: flex;
+    justify-content: center;
+}
+
+.btn1,
+.btn2
+{
+    background-color: lightblue;
+    border: 1px solid black;
+    color: green;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+

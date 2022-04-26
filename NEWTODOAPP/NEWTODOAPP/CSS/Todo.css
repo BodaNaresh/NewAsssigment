@@ -1,0 +1,158 @@
+﻿
+body {
+    background-color: cornflowerblue;
+}
+#boards {
+    width: 100%;
+    min-width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-block: 10px;
+}
+
+.container {
+    width: 100%;
+    min-width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-block:10px;
+    
+}
+
+
+.inputtext {
+    width: 300px;
+    cursor: pointer;
+}
+#btn {
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    margin-top: 15px;
+    background-color: rgb(13, 13, 241);
+    color: white;
+}
+
+.Todo-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.Todo_board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+
+.todo_heading_text {
+    font-size: 1.8rem;
+    background-color: tomato;
+    padding: 0.8rem 1.7rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    text-align:center;
+}
+
+.todo_block {
+    padding: 0.2rem;
+    background-color: yellow;
+    width: 30.5%;
+    min-width: 7rem;
+    min-height: 4.5rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    justify-content: space-around;
+}
+/*.todo_block1 {
+    padding: 0.2rem;
+    background-color:blueviolet;
+    width: 30.5%;
+    min-width: 7rem;
+    min-height: 4.5rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    justify-content: space-between;
+    column-gap:10px;
+}
+.todo_block2 {
+    padding: 0.2rem;
+    background-color:aqua;
+    width: 30.5%;
+    min-width: 7rem;
+    min-height: 4.5rem;
+    border-radius: 0.3rem;
+    display:inline-block;
+}*/
+
+
+/*#Todo {
+    background-color:#FFFFFF;
+}
+
+#Doing {
+    background-color: #FFFFFF;
+}
+
+#Done {
+    background-color: #FFFFFF;
+}
+*/
+ .input {
+    height: 40px;
+    border:1px;
+    width:250px;
+   
+}
+
+.ToDoList {
+    display:flex;
+    margin-top: 5px;
+   /* background-color: white;*/
+}
+
+ .text {
+    
+    outline: none;
+    margin-left: 2px;
+    width: 300px;
+    cursor: pointer;
+    background-color:aqua
+}
+
+#area {
+    width: 300px;
+    height:60px;
+    cursor: pointer;
+}
+ 
+
+  .edit {
+    margin-top: 10px;
+    right: 100px;
+    cursor: pointer;
+    
+}
+
+.edit:hover {
+    background-color:antiquewhite;
+    padding:5px;
+    color:black;
+}
+
+.delete {
+    right: 10px;
+    margin-right: 3px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+ .delete:hover {
+     background-color:red;
+     padding:5px;
+     color:white;
+}
