@@ -1,5 +1,4 @@
-﻿
-let Todoitem = document.querySelector("#inputtext");
+﻿let Todoitem = document.querySelector("#inputtext");
 let addToDo = document.querySelector("#btn");
 let TodoItems = document.querySelector("#tasks");
 let mainDiv = document.querySelector('.Todo_board');
@@ -9,7 +8,6 @@ let Completed = document.querySelector("#Completed");
 
 let Board = document.querySelector("#boards");
 let todovalue = document.querySelector('textinput');
-
 
 let todos = [];
 
@@ -25,7 +23,6 @@ addToDo.addEventListener('click', () => {
 
     TodoItems.appendChild(Createtodo(Todoitem.value));
     Todoitem.value = "";
-  //  window.location.reload(true);
 });
 
 
@@ -58,8 +55,6 @@ function dragEnter(e) {
 
 function dragLeave(e) {
         e.preventDefault();
-       // console.log(user);
-        console.log(e.target);
 }
 
 var id;
@@ -68,9 +63,7 @@ function Drop(e) {
     console.log(e);
     this.appendChild(draggableItem);
     id = e.srcElement.children[2].id;
-   // console.log(id);
     let newstatus = $(this).closest('Div').attr('id');
-    //console.log(newstatus);
     var url = 'http://localhost:62045/api/Update/UpdateStatus?id=' + id;
     var data = JSON.stringify({
         "TodoId":id,
@@ -93,11 +86,7 @@ function Drop(e) {
 
 //Getting todos from database
 $(document).ready(function () {
-    //GetBoards();
-     // GetTask();
-   // BoardCreation();
-    GetBoardInformation();
-   
+     //GetTask();
 })
 
 var Todos;
@@ -139,7 +128,6 @@ function Createtodo(value,id) {
         let ToDoList = document.createElement('div');
         ToDoList.classList.add('ToDoList');
 
-        // creating div element
         let todo = document.createElement('div');
         todo.classList.add('todo');
 
@@ -214,9 +202,8 @@ function Createtodo(value,id) {
 
    //delete Functionality
     todo_delete.addEventListener('click', () => {
-      //  window.location.reload(true);
-        mainDiv.removeChild.ToDoList;
-        //console.log(e);
+        const element = document.getElementById(id);
+        element.remove();
         var deleteId = id;
         var url = 'http://localhost:62045/api/AdminApi/DeleteToDo?id=' + deleteId;
         $.ajax({
@@ -225,7 +212,7 @@ function Createtodo(value,id) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (result) {
-                alert(result);
+                //alert(result);
             },
             error: function (error) {
                 alert(error);
@@ -259,31 +246,28 @@ function saveTask() {
         });
 }
 
-let BoardName;
-function GetBoard() {
-   
-    
+function removeAppendedTodos() {
     if (BoardName == 'Board1') {
-        Inprogress.removeChild.ToDoList;
-        console.log(Inprogress);
-        Completed.removeChild.ToDoList;
-        console.log(Inprogress);
-
-    }if (BoardName == 'Board2') {
-        TodoItems.removeChild.ToDoList;
-        console.log(TodoItems);
-        Completed.removeChild.ToDoList;
-        console.log(Inprogress);
-
-
-    } if (BoardName == 'Board3') {
-        TodoItems.removeChild.ToDoList;
-        console.log(TodoItems);
-        Inprogress.removeChild.ToDoList;
-        console.log(Inprogress);
-      
+       const Todotasks = document.getElementById("tasks");
+         Todotasks.remove();
+        console.log(Todotasks);
+      }
+    if (BoardName == 'Board2') {
+        const inprogress = document.getElementById("Inprogress");
+        inprogress.removeChild(inprogress.firstElementChild);
+        console.log(inprogress);
     }
-    
+    if (BoardName == 'Board3') {
+        const completed = document.getElementById("Completed");
+        completed.remove();
+        console.log(completed);
+    }
+}
+
+//BoardInfromation
+let BoardName;
+function SelectBoards() {
+    removeAppendedTodos();
      BoardName = $("#ddl").val();
     var url = 'http://localhost:62045/api/Board/Boardget';
     var data = JSON.stringify({
@@ -313,7 +297,6 @@ function GetBoard() {
                 }
                 
             })
-           
 
         },
         error: function (error) {
@@ -323,7 +306,7 @@ function GetBoard() {
    
 }
 
-
+//code for creating a board
 function BoardCreation() {
     let Container = document.createElement('div');
     Container.classList.add('container');
@@ -334,41 +317,22 @@ function BoardCreation() {
     let todo_block = document.createElement('div');
     todo_block.classList.add('todo_block');
 
-    todo_block.setAttribute('id', id);
-
-    //var input = document.createElement('input');
-    //input.classList.add('textinput');
-    //input.type = "text";
-
-    //let add = document.createElement('button');
-    //add.classList.add('add');
-    //add.innerHTML = 'ADD';
-    //Todo_Board.appendChild(add);
-
     let items = document.createElement('Div');
     items.classList.add('items');
     items.innerText = textinput.value;
 
     todo_block.appendChild(items);
-
     textinput.value = "";
-    console.log(textinput.value);
-
-
-   // todo_block.appendChild(input);
-   // todo_block.appendChild(add);
 
     Todo_Board.appendChild(todo_block);
     Container.appendChild(Todo_Board);
     Container.appendChild(todo_block);
     Board.appendChild(Container);
-
     console.log(Board);
-
-   
 }
+
+
 function GetBoardInformation() {
-  //  BoardName = $("#textinput").val();
     var url = 'http://localhost:62045/api/BoardInfo/GetBoardInfo';
     $.ajax({
         type: "GET",
@@ -391,7 +355,6 @@ function GetBoardInformation() {
 
 
 function postBoardInformation() {
-    debugger;
     let BoardName = $("#textinput").val();
     console.log(BoardName);
     var url = 'http://localhost:62045/api/BoardInfo/Boardinfopost';
@@ -405,9 +368,7 @@ function postBoardInformation() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-           
                 //alert(JSON.stringify(result));
-           
         },
         error: function (error) {
             alert(error);

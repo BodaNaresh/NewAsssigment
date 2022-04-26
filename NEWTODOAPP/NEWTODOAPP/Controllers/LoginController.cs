@@ -17,11 +17,11 @@ namespace NEWTODOAPP.Controllers
         DataTable dt = new DataTable();
 
         [HttpPost]
-        public DataTable GetCredentials(Register login)
+        public string GetCredentials(Register login)
         {
             LoginService service = new LoginService();
             service.PostCredentials(login);
-            return dt;
+            return "correct";
         }
     }
 }
